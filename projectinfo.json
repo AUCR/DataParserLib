@@ -9,7 +9,7 @@
     "license": "Apache-2.0",
     "classifiers": ["Development Status :: 4 - Beta",
                     "Intended Audience :: Developers",
-                    "License :: OSI Approved ::Apache License 2.0 (Apache-2.0)",
+                    "License :: OSI Approved :: Apache Software License",
                     "Programming Language :: Python :: 3.6"],
     "url": "https://github.com/AUCR/DataParserLib"
   },
@@ -17,6 +17,6 @@
     "major": 0,
     "minor": 0,
     "revision": 0,
-    "release": 3
+    "release": 4
   }
 }
