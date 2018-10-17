@@ -1,0 +1,42 @@
+language: python
+python:
+- 3.6
+- 3.6-dev
+before_install:
+- sudo apt-get update
+- sudo apt-get -y install python-pip
+- sudo pip install --upgrade pip
+- pip install --upgrade pip
+- pip install codecov
+- pip install pycodestyle
+- pip install pydocstyle
+- pip install tox
+- pip install pytest
+- pip install python-coveralls
+install:
+- pip install .
+script:
+- coverage run tests/test_dict_parse.py
+- codecov
+matrix:
+  include:
+  - python: 3.6
+    env: TOXENV=py36
+after_success:
+- coverage combine && codecov
+- coveralls
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+  slack:
+    secure: HIPMqLDYBGGxfKLOAg/bEiUMPZa1HJzOvpGUPHPPnXWx7PfgSpm5B/aFhEsY1xxsAsHmN0eEZ46XNEVEtpT0iCecjfBzZCuDVBcxD2g6SD1NaQvdBc2qsLr7EjtqVNURXSAggTgkNhNU4ethIpCV3of8m6P+uI2Yx+71HrH3c7I7qVhT/9Yx7RlS/biMqkJaMgfIe8EjnB5vKFMNfUyWjN9YsXCSjMlfjC/Xka7VJTd5O1HGpc6fyJkVwtk7rYUi+FnmSgFt5OssUTrmZc+NTuyYBBt0x2y/231p9guJHjQM0hxed+moZBIw6tgrsrZxkYotkYb+uEbsEvNM/tv9wTzLc5Zb8P0V+UQKCrn3enVOoS4xXS5UoVLi9pg1XNZtDGjkSyvXn43lK8SM6O1IaZDryNczTv22itdvDB71m0/gedLxcD8CrDMY9LMd04FW2PuRq8Mlk7cr90ZkrOMWs6mOEF5oV9OiawVWOmOsqI8ae+zxjtaVbv6OAAr9fePDOyss9KocrQ2itb9GcPQ/89bKwMW5g2tAKwlXJtSG2tGif/qvHt6uLSEE+2MA9Aw75kRY9uO2QdnocXK9bqndmiM4uC7ClzdtjwM/BPF4QYVDWK2IBbsuSUOQ3X3IJ237u67VtFjtxgCPS5AxqWb4/3goxOKoBjIl4zOi2BuI5GA=
+
+deploy:
+  provider: pypi
+  username: utriple
+  password:
+    secure: hqkLAJe4kV0CskUcftSxG5YRtef0aVey68pLS+WWNNBFID1+xEdEmUOL8MA6kE5e69EjBbuRgTdtBD1gtlPlB+ewG7X1JcTKVo1ikkqWES9fRHRjuoBQFHsmKAJcJ+foeIGNVXD0P6ThuZYOF5DEw/+/C4yUpPrTxsvdElQ0gQweZlO+OKU843BZU7CIjesBzgXWUhhSJhOWwh4EWMNxHS+8CnuiemRQL2asiNsCr4rcn0ZkKk/atREkpv0b9IzKnDawh7cvHqf3ix+aLRbqwhVCT43SBt9tLsD9QTar7hcsYkqO7Vqde+mzAWiAdFA0PY5abOONprXz8R/5uFAQx6jhV6pRTZNokf7tuo+Q+Na+m7+SRUSFuuX8KNq8XkkSTcwL0nvh7K+zk3nHwSBpttaXsb5XpVOC5Yhxbudx9y6xhOBj9HTL1N8To08uKkq8vnAvrDmxQp4nfuZHYEmhUnYpVkyhAlH+TKuSzrywjMEaDVpmQQdvY/qvN2Sk7AChxP2pZ/3MUBCETyZ+udXjCs7mMBikJqOzyufQ1em57CdiJnQn0PtdQ9KV8ttmnpuwCcXY3Y+BSRBVkGdYhIS0/gRg4nuusMIp6rb/6/UymTxJuqgCeAMAJU1HMBQEk7ZRX7P/KVFp2PnD+60HKtSfXnQOxYj26ncrAakk/0jpqmk=
+  on:
+    tags: true
+    python: 3.6
