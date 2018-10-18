@@ -1,6 +1,5 @@
 """DataParserLib Install Script"""
 # coding=utf-8
-
 import json
 from setuptools import setup, find_packages
 

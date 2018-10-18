@@ -25,3 +25,6 @@ class DataParserLibConfigTest(unittest.TestCase):
         flat_project_data = flatten_dictionary(self.dictionary_data)
         self.assertEqual(flat_project_data["report"]["testinfo.project_name"], "test")
 
+
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
