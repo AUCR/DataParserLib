@@ -1,0 +1,33 @@
+{
+  "testinfo": {
+    "project_name": "test",
+    "test_list": ["test", "test2","test3"]
+  },
+  "test_list": ["test", "test2","test3"],
+  "test_list_with_dict": ["dict"],
+  "test_none": {"": ""},
+  "test_nested_none": ["test", {"test": "test"}],
+  "version": {
+    "major": 1212,
+    "minor": 23232,
+    "revision": 33,
+    "release": 5
+  },
+  "test": {
+    "data": {
+      "test_value": "test_value_1",
+      "test_value2": "test_value_2"
+    },
+    "data2": {
+      "test_list": ["test", "test2","test3"],
+      "test_dict": {
+        "test_value": "test_value_1",
+        "test_list": ["test", "test2","test3"]
+      }
+    }
+  },
+  "test_more_none": "",
+  "test_more": "testmore",
+  "test_dict": {"test": "testing"},
+  "test_dict_none": {"test": "testing"}
+}
